@@ -1,3 +1,8 @@
+import Encabezado from "./Encabezado"
+import Footer from "./Footer"
+import FormularioTODO from "./FormularioTODO"
+import ListaTODOs from "./ListaTODOs"
+
 const TodoPage = () => {
     return <div>
         <Encabezado />

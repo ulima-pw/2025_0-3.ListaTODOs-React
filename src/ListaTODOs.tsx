@@ -1,5 +1,8 @@
 const ListaTODOs = () => {
-    return <div>ListaTODOs</div>
+    return <section>
+        <ul id="todos">
+        </ul>
+    </section>
 }
 
 export default ListaTODOs
