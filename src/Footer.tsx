@@ -1,10 +1,27 @@
+import { useState } from "react"
 import "./Footer.css"
 
 const Footer = () => {
-    const estilo = {
-        backgroundColor : "red"
+    const [color, setColor] = useState<number>(0)
+
+    const posiblesColores = [
+        "red", "blue", "peru"
+    ]
+
+    const footerOnClick = () => {
+        if (posiblesColores.length > 0)
+        {
+            const pos = Math.floor(Math.random() * (posiblesColores.length))
+            setColor(pos)
+        }
     }
-    return <div className="card mt-2" style={ estilo }>
+
+    const estilo = {
+        backgroundColor : posiblesColores[color]
+    }
+    return <div className="card mt-2" 
+                style={ estilo } 
+                onClick={ footerOnClick }>
         <div className="card-body texto-centrado texto-blanco">
             Programación Web :: 2025-0
         </div>
