@@ -24,10 +24,16 @@ const TodoPage = () => {
         setListadoPorHacer([...listadoPorHacer, nuevoTODO])
     }
 
+    const eliminarTODOHandler = (pos : number) => {
+        listadoPorHacer.splice(pos, 1)
+        setListadoPorHacer([...listadoPorHacer])
+    }
+
     return <div className="container">
         <Encabezado titulo={ nombreAplicacion }/>
         <FormularioTODO onAgregarTodo={ agregarTODOHandler }/>
-        <ListaTODOs lista={listadoPorHacer}/>
+        <ListaTODOs lista={listadoPorHacer}
+                    onEliminarTodo={ eliminarTODOHandler }/>
         <Footer />
     </div>
 }
