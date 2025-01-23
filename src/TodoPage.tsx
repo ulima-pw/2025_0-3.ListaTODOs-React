@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Encabezado from "./Encabezado"
 import Footer from "./Footer"
 import FormularioTODO from "./FormularioTODO"
@@ -9,20 +10,23 @@ export interface TODO {
 }
 
 const TodoPage = () => {
+    const [listadoPorHacer, setListadoPorHacer] = useState<TODO[]>([])
+
     const nombreAplicacion = "TODO App"
-    const listadoPorHacer : TODO[] = [
-        {
-            descripcion : "Domir",
-            fecha : new Date() // fecha actual
-        },
-        {
-            descripcion : "Bañar al perro",
-            fecha : new Date() // fecha actual
+
+    const agregarTODOHandler = (descripcion : string) => {
+        const nuevoTODO = {
+            descripcion : descripcion,
+            fecha : new Date()
         }
-    ]
+
+        //listadoPorHacer.push(nuevoTODO)
+        setListadoPorHacer([...listadoPorHacer, nuevoTODO])
+    }
+
     return <div className="container">
         <Encabezado titulo={ nombreAplicacion }/>
-        <FormularioTODO />
+        <FormularioTODO onAgregarTodo={ agregarTODOHandler }/>
         <ListaTODOs lista={listadoPorHacer}/>
         <Footer />
     </div>
