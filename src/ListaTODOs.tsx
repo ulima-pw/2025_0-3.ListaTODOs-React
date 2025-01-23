@@ -10,7 +10,7 @@ const ListaTODOs = (props : ListaTODOsProps) => {
         <ul id="todos" className="list-group">
             {
                 props.lista.map((item : TODO, index : number) => {
-                    return <li className="list-group-item"
+                    return <li key={index} className="list-group-item"
                                 onClick={ () => {
                                     props.onEliminarTodo(index)
                                 } }>
